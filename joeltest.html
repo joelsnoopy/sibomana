@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <style>
+        /* Header styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.7);
+            height: 60px;
+            position: sticky;
+        }
+        
+        .logo {
+            position: sticky;
+            height: 40px;
+            width: auto;
+        }
+        
+        .menu {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .menu ul li {
+            display: inline-block;
+        }
+        
+        .menu ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            padding: 8px 12px;
+            display: block;
+            transition: color 0.3s ease, background 0.3s ease;
+        }
+        
+        .menu ul li a:hover {
+            color: #17a2b8;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+        
+        /* Product grid styles */
+        .health-categories {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .category-buttons {
+            margin: 15px 0;
+        }
+        
+        .category-btn {
+            padding: 8px 15px;
+            margin: 0 5px;
+            background: #f0f0f0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .category-btn.active {
+            background: #17a2b8;
+            color: white;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .product-card img {
+            max-width: 100%;
+            height: 150px;
+            object-fit: contain;
+        }
+        
+        .prescription {
+            color: #d9534f;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        
+        .price {
+            font-weight: bold;
+            font-size: 1.1em;
+            margin: 10px 0;
+        }
+        
+        .pack-size {
+            font-size: 0.8em;
+            color: #666;
+        }
+        
+        .quantity-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 0;
+        }
+        
+        .quantity {
+            width: 40px;
+            text-align: center;
+            margin: 0 5px;
+        }
+        
+        .quantity-btn {
+            width: 25px;
+            height: 25px;
+            background: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        .buy-btn {
+            background: #17a2b8;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        
+        .buy-btn:hover {
+            background: #138496;
+        }
+        
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 500px;
+        }
+        
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        /* Footer styles */
+        .footer {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            text-align: left;
+            padding: 15px;
+            margin-top: 20px;
+            bottom: -1000px;
+        }
+        
+        .footer a {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+       <!-- Header with Logo and Login/Signup Buttons -->
+    <div class="header">
+        <img src="logo123.jpg" alt="Medicine Shop Logo" class="logo"> 
+        <div class="menu">
+            <ul>
+                <li><a href="page1.html">Home</a></li>
+                <li><a href="shop (2).html">Shop</a></li>
+                <li><a href="do.html">Cart</a></li>
+                <li><a href="order.html">Orders</a></li>
+                <li><a href="doctor%20advice.html">Doctor's advices</a></li>
+            </ul>
+        </div>
+    </div>
+    </header>
+
+    <main>
+        <section class="health-categories">
+            <h2>Shop by Health Category</h2>
+            <div class="category-buttons">
+                <button class="category-btn active" data-category="all">All Products</button>
+                <button class="category-btn" data-category="pain">Pain Relief</button>
+                <button class="category-btn" data-category="cold">Cold & Flu</button>
+                <button class="category-btn" data-category="allergy">Allergy</button>
+                <button class="category-btn" data-category="digestive">Digestive Health</button>
+                <button class="category-btn" data-category="vitamins">Vitamins</button>
+                <button class="category-btn" data-category="skincare">Skin Care</button>
+            </div>
+        </section>
+
+        <div class="product-grid">
+            <!-- Pain Relief -->
+            <div class="product-card" data-category="pain">
+                <img src="Paracetamol.jpg" alt="Paracetamol">
+                <h3>Paracetamol 500mg</h3>
+                <p class="prescription">OTC Medicine</p>
+                <p class="price">$5.99 <span class="pack-size">(20 tablets)</span></p>
+                <div class="quantity-controls">
+                    <button class="quantity-btn minus">-</button>
+                    <input type="number" class="quantity" value="1" min="1" max="10">
+                    <button class="quantity-btn plus">+</button>
+                </div>
+                <button class="buy-btn" data-id="med001" data-name="Paracetamol 500mg" data-price="5.99" data-prescription="false">Add to Cart</button>
+            </div>
+            
+            <!-- Cold & Flu -->
+            <div class="product-card" data-category="cold">
+                <img src="Cold%20&%20Flu%20Relief.jpg" alt="Cold Relief">
+                <h3>Cold & Flu Relief</h3>
+                <p class="prescription">OTC Medicine</p>
+                <p class="price">$8.49 <span class="pack-size">(10 tablets)</span></p>
+                <div class="quantity-controls">
+                    <button class="quantity-btn minus">-</button>
+                    <input type="number" class="quantity" value="1" min="1" max="5">
+                    <button class="quantity-btn plus">+</button>
+                </div>
+                <button class="buy-btn" data-id="med002" data-name="Cold & Flu Relief" data-price="8.49" data-prescription="false">Add to Cart</button>
+            </div>
+            
+            <!-- Prescription Medicine -->
+            <div class="product-card prescription-med" data-category="allergy">
+                <img src="Loratadine%2010mg.jpg" alt="Allergy Medicine">
+                <h3>Loratadine 10mg</h3>
+                <p class="prescription">Prescription Required</p>
+                <p class="price">$12.99 <span class="pack-size">(30 tablets)</span></p>
+                <div class="quantity-controls">
+                    <button class="quantity-btn minus">-</button>
+                    <input type="number" class="quantity" value="1" min="1" max="3">
+                    <button class="quantity-btn plus">+</button>
+                </div>
+                <button class="buy-btn" data-id="med003" data-name="Loratadine 10mg" data-price="12.99" data-prescription="true">Add to Cart</button>
+            </div>
+            
+            <!-- Digestive Health -->
+            <div class="product-card" data-category="digestive">
+                <img src="Antacid%20Tablets.jpg" alt="Antacid">
+                <h3>Antacid Tablets</h3>
+                <p class="prescription">OTC Medicine</p>
+                <p class="price">$6.75 <span class="pack-size">(12 tablets)</span></p>
+                <div class="quantity-controls">
+                    <button class="quantity-btn minus">-</button>
+                    <input type="number" class="quantity" value="1" min="1" max="10">
+                    <button class="quantity-btn plus">+</button>
+                </div>
+                <button class="buy-btn" data-id="med004" data-name="Antacid Tablets" data-price="6.75" data-prescription="false">Add to Cart</button>
+            </div>
+            
+            <!-- Additional Products -->
+            <!-- Vitamin C -->
+            <div class="product-card" data-category="vitamins">
+                <img src="vitamin-c.jpg" alt="Vitamin C">
+                <h3>Vitamin C 1000mg</h3>
+                <p class="prescription">OTC Supplement</p>
+                <p class="price">$9.99 <span class="pack-size">(60 tablets)</span></p>
+                <div class="quantity-controls">
+                    <button class="quantity-btn minus">-</button>
+                    <input type="number" class="quantity" value="1" min="1" max="5">
+                    <button class="quantity-btn plus">+</button>
+                </div>
+                <button class="buy-btn" data-id="med005" data-name="Vitamin C 1000mg" data-price="9.99" data-prescription="false">Add to Cart</button>
+            </div>
+            
+            <!-- Ibuprofen -->
+            <div class="product-card" data-category="pain">
+                <img src="ibuprofen.jpg" alt="Ibuprofen">
+                <h3>Ibuprofen 200mg</h3>
+                <p class="prescription">OTC Medicine</p>
+                <p class="price">$7.25 <span class="pack-size">(24 tablets)</span></p>
+                <div class="quantity-controls">
+                    <button class="quantity-btn minus">-</button>
+                    <input type="number" class="quantity" value="1" min="1" max="8">
+                    <button class="quantity-btn plus">+</button>
+                </div>
+                <button class="buy-btn" data-id="med006" data-name="Ibuprofen 200mg" data-price="7.25" data-prescription="false">Add to Cart</button>
+            </div>
+            
+            <!-- Multivitamin -->
+            <div class="product-card" data-category="vitamins">
+                <img src="multivitamin.jpg" alt="Multivitamin">
+                <h3>Daily Multivitamin</h3>
+                <p class="prescription">OTC Supplement</p>
+                <p class="price">$14.99 <span class="pack-size">(90 tablets)</span></p>
+                <div class="quantity-controls">
+                    <button class="quantity-btn minus">-</button>
+                    <input type="number" class="quantity" value="1" min="1" max="3">
+                    <button class="quantity-btn plus">+</button>
+                </div>
+                <button class="buy-btn" data-id="med007" data-name="Daily Multivitamin" data-price="14.99" data-prescription="false">Add to Cart</button>
+            </div>
+            
+            <!-- Hydrocortisone Cream -->
+            <div class="product-card" data-category="skincare">
+                <img src="hydrocortisone.jpg" alt="Hydrocortisone Cream">
+                <h3>Hydrocortisone Cream 1%</h3>
+                <p class="prescription">OTC Medicine</p>
+                <p class="price">$8.95 <span class="pack-size">(30g tube)</span></p>
+                <div class="quantity-controls">
+                    <button class="quantity-btn minus">-</button>
+                    <input type="number" class="quantity" value="1" min="1" max="4">
+                    <button class="quantity-btn plus">+</button>
+                </div>
+                <button class="buy-btn" data-id="med008" data-name="Hydrocortisone Cream 1%" data-price="8.95" data-prescription="false">Add to Cart</button>
+            </div>
+            
+            <!-- Omeprazole -->
+            <div class="product-card prescription-med" data-category="digestive">
+                <img src="omeprazole.jpg" alt="Omeprazole">
+                <h3>Omeprazole 20mg</h3>
+                <p class="prescription">Prescription Required</p>
+                <p class="price">$18.50 <span class="pack-size">(28 capsules)</span></p>
+                <div class="quantity-controls">
+                    <button class="quantity-btn minus">-</button>
+                    <input type="number" class="quantity" value="1" min="1" max="2">
+                    <button class="quantity-btn plus">+</button>
+                </div>
+                <button class="buy-btn" data-id="med009" data-name="Omeprazole 20mg" data-price="18.50" data-prescription="true">Add to Cart</button>
+            </div>
+            
+            <!-- Antihistamine Eye Drops -->
+            <div class="product-card" data-category="allergy">
+                <img src="eye-drops.jpg" alt="Antihistamine Eye Drops">
+                <h3>Antihistamine Eye Drops</h3>
+                <p class="prescription">OTC Medicine</p>
+                <p class="price">$11.25 <span class="pack-size">(10ml)</span></p>
+                <div class="quantity-controls">
+                    <button class="quantity-btn minus">-</button>
+                    <input type="number" class="quantity" value="1" min="1" max="3">
+                    <button class="quantity-btn plus">+</button>
+                </div>
+                <button class="buy-btn" data-id="med010" data-name="Antihistamine Eye Drops" data-price="11.25" data-prescription="false">Add to Cart</button>
+            </div>
+        </div>
+
+        <!-- Prescription Upload Modal -->
+        <div id="prescriptionModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Prescription Upload Required</h3>
+                <p>To purchase prescription medications, please upload a valid doctor's prescription.</p>
+                <form id="prescriptionForm">
+                    <input type="file" id="prescriptionFile" accept=".pdf,.jpg,.png" required>
+                    <button type="submit">Upload and Continue</button>
+                </form>
+            </div>
+        </div>
+    </main>
+    
+    
+    <!-- Footer with Contact Details --> 
+    <footer>
+        <div class="footer">
+            <p>Contact: <a href="mailto:Medicineshop@gmail.com" class="text-white">Medicineshop@gmail.com</a></p>
+            <p>Phone: 0798468597, 07880580569</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple cart functionality
+        let cartItems = [];
+        let cartCount = 0;
+        
+        // Add to cart button click handler
+        document.querySelectorAll('.buy-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const id = this.getAttribute('data-id');
+                const name = this.getAttribute('data-name');
+                const price = parseFloat(this.getAttribute('data-price'));
+                const requiresPrescription = this.getAttribute('data-prescription') === 'true';
+                const quantity = parseInt(this.parentElement.querySelector('.quantity').value);
+                
+                if (requiresPrescription) {
+                    document.getElementById('prescriptionModal').style.display = 'block';
+                } else {
+                    addToCart(id, name, price, quantity);
+                }
+            });
+        });
+        
+        // Quantity controls
+        document.querySelectorAll('.quantity-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const input = this.parentElement.querySelector('.quantity');
+                let value = parseInt(input.value);
+                
+                if (this.classList.contains('minus') && value > parseInt(input.min)) {
+                    input.value = value - 1;
+                } else if (this.classList.contains('plus') && value < parseInt(input.max)) {
+                    input.value = value + 1;
+                }
+            });
+        });
+        
+        // Modal close button
+        document.querySelector('.close').addEventListener('click', function() {
+            document.getElementById('prescriptionModal').style.display = 'none';
+        });
+        
+        // Add item to cart
+        function addToCart(id, name, price, quantity) {
+            // Check if item already in cart
+            const existingItem = cartItems.find(item => item.id === id);
+            
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cartItems.push({
+                    id,
+                    name,
+                    price,
+                    quantity
+                });
+            }
+            
+            cartCount += quantity;
+            updateCartCount();
+            alert(`${quantity} ${name} added to cart!`);
+        }
+        
+        // Update cart count display
+        function updateCartCount() {
+            const cartCountElement = document.getElementById('cart-count');
+            if (cartCountElement) {
+                cartCountElement.textContent = cartCount;
+            }
+        }
+        
+        // Category filtering
+        document.querySelectorAll('.category-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Remove active class from all buttons
+                document.querySelectorAll('.category-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                const category = this.getAttribute('data-category');
+                filterProducts(category);
+            });
+        });
+        
+        // Filter products by category
+        function filterProducts(category) {
+            const products = document.querySelectorAll('.product-card');
+            
+            products.forEach(product => {
+                if (category === 'all' || product.getAttribute('data-category') === category) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Online Shop</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background: url('medecine.avif') no-repeat center center fixed; 
+            background-size: cover;
+            color: white;
+            font-family: Arial, sans-serif;
+            padding-bottom: 80px; /* Add padding for footer */
+        }
+
+        .animated-header {
+            text-align: center;
+            font-size: clamp(24px, 5vw, 32px); /* Responsive font size */
+            font-weight: bold;
+            padding: 10px;
+            animation: colorChange 5s infinite alternate;
+            margin-top: 15px;
+        }
+
+        @keyframes colorChange {
+            0%   { color: red; }
+            25%  { color: blue; }
+            50%  { color: green; }
+            75%  { color: white; }
+            100% { color: purple; }
+        }
+
+        .header {
+            position: sticky;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+        }
+
+        .logo {
+            width: 80px;
+            height: auto;
+        }
+
+        .center-signup {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .signup-form {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        .footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            position: fixed;
+            bottom: -20px;
+            width: 100%;
+            text-align:left;
+            font-size: 14px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .social-icons img {
+            width: 30px;
+            height: auto;
+            cursor: pointer;
+        }
+
+        /* Mobile-specific adjustments */
+        @media (max-width: 576px) {
+            .logo {
+                width: 60px;
+            }
+            
+            .signup-form {
+                padding: 15px;
+                margin: 10px auto;
+            }
+            
+            .footer {
+                padding: 10px;
+                font-size: 12px;
+            }
+            
+            .social-icons img {
+                width: 25px;
+            }
+            
+            .btn {
+                padding: 8px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="logo123.jpg" alt="Medicine Shop Logo" class="logo"> 
+    </div>
+
+    <h1 class="animated-header">Online Medicine Shop</h1>
+
+    <!-- Signup Form in Center -->
+    <div class="center-signup">
+        <form class="signup-form">
+            <h2 class="text-center mb-4">Signup</h2>
+            <div class="mb-3">
+                <label for="fullName" class="form-label">Full Name</label>
+                <input type="text" class="form-control" id="fullName" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" required>
+            </div>
+            <div class="mb-3">
+                <label for="location" class="form-label">Location</label>
+                <input type="text" class="form-control" id="location" required>
+            </div>
+            <div class="mb-3">
+                <label for="id" class="form-label">ID</label>
+                <input type="text" class="form-control" id="id" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100 mt-3">Signup</button>
+            <div class="text-center mt-3">
+                <span>Already have an account? <a href="login.html" class="text-white">Login</a></span>
+            </div>
+        </form>
+    </div>
+
+    <!-- Footer with Contact Details and Social Icons -->
+    <div class="footer">
+        <div class="social-icons">
+            <a href="https://www.instagram.com" target="_blank">
+                <img src="Instagram_icon.png" alt="Instagram">
+            </a>
+            <a href="https://twitter.com" target="_blank">
+                <img src="twitter.png" alt="Twitter/X">
+            </a>
+            <a href="https://wa.me/+2507880857087" target="_blank">
+                <img src="download.jpg" alt="WhatsApp">
+            </a>
+        </div>
+        <div class="mt-2">
+            <p>Contact: <a href="mailto:Medicineshop@gmail.com" class="text-white">Medicineshop@gmail.com</a></p>
+            <p>Phone: 0798468597, 07880580569</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

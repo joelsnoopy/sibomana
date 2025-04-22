@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Online Shop - Doctor's Advice</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background: url('medecine.avif') no-repeat center center fixed; 
+            background-size: cover;
+            color: white;
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            position: relative;
+            padding-bottom: 120px; /* Space for footer */
+            margin: 0;
+        }
+        .animated-header {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            padding: 10px;
+            animation: colorChange 5s infinite alternate;
+        }
+
+        @keyframes colorChange {
+            0%   { color: red; }
+            25%  { color: blue; }
+            50%  { color: green; }
+            75%  { color: white; }
+            100% { color: purple; }
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .logo {
+            width: 100px;
+            height: auto;
+        }
+        
+        /* Updated Footer Styles */
+        .footer {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            text-align: left;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 80px;
+        }
+        
+        .social-icons {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+        }
+        .social-icons img {
+            width: 40px;
+            height: auto;
+            cursor: pointer;
+        }
+        .menu {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 30px;
+        }
+        .menu ul li {
+            display: inline-block;
+        }
+        .menu ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 12px 20px;
+            display: block;
+            transition: color 0.3s ease, background 0.3s ease;
+        }
+        .menu ul li a:hover {
+            color: #17a2b8;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+        /* Doctor's Advice Section Styles */
+        .advice-section {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 1200px;
+            border-radius: 10px;
+        }
+        .advice-title {
+            color: #17a2b8;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .advice-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .text-advice {
+            flex: 1;
+            min-width: 300px;
+        }
+        .video-container {
+            flex: 1;
+            min-width: 300px;
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .advice-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .advice-card h3 {
+            color: #17a2b8;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header with Logo and Login/Signup Buttons -->
+    <div class="header">
+        <img src="logo123.jpg" alt="Medicine Shop Logo" class="logo"> 
+        <div class="menu">
+            <ul>
+                <li><a href="page1.html">Home</a></li>
+                <li><a href="shop (2).html">Shop</a></li>
+                <li><a href="cart2.html">Cart</a></li>
+                <li><a href="order.html">Orders</a></li>
+                <li><a href="doctor%20advice.html">Doctor's advices</a></li>
+            </ul>
+        </div>
+        <div>
+            <a href="signup2.html" class="btn btn-light">Logout</a>
+        </div>
+    </div>
+
+    <!-- Doctor's Advice Section -->
+    <div class="advice-section">
+        <h2 class="advice-title">Professional Medical Advice</h2>
+        
+        <div class="advice-content">
+            <!-- Text Advice Column -->
+            <div class="text-advice">
+                <div class="advice-card">
+                    <h3>General Health Tips</h3>
+                    <p>1. Stay hydrated by drinking at least 8 glasses of water daily.</p>
+                    <p>2. Get 7-8 hours of quality sleep each night.</p>
+                    <p>3. Wash your hands frequently to prevent infections.</p>
+                    <p>4. Don't skip meals and maintain a balanced diet.</p>
+                </div>
+                
+                <div class="advice-card">
+                    <h3>Medication Guidelines</h3>
+                    <p>1. Always take medications as prescribed by your doctor.</p>
+                    <p>2. Never share prescription medications with others.</p>
+                    <p>3. Store medicines in a cool, dry place away from sunlight.</p>
+                    <p>4. Check expiration dates before taking any medication.</p>
+                </div>
+                
+                <div class="advice-card">
+                    <h3>When to See a Doctor</h3>
+                    <p>1. Persistent fever lasting more than 3 days.</p>
+                    <p>2. Difficulty breathing or chest pain.</p>
+                    <p>3. Sudden severe headache or vision changes.</p>
+                    <p>4. Unexplained weight loss or gain.</p>
+                </div>
+            </div>
+            
+            <!-- Video Advice Column -->
+            <div class="video-container">
+                <h3 class="text-center mb-4">Educational Videos</h3>
+                
+                <div class="video-wrapper">
+                    <!-- Embed a YouTube video about general health -->
+                    <iframe src="https://youtu.be/ngdK34knixM" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                
+                <div class="advice-card mt-4">
+                    <h4>Common seasonal illiness Prevention</h4>
+                    <p>Learn proper techniques to prevent seasonal illnesses and when to seek medical attention.</p>
+                </div>
+                
+                <div class="video-wrapper mt-4">
+                    <!-- Embed a YouTube video about medication safety -->
+                    <iframe src="https://youtu.be/ngdK34knixM?t=733" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center">
+            <p><strong>Note:</strong> This information is for educational purposes only. Always consult with a healthcare professional for medical advice.</p>
+            <a href="#" class="btn btn-primary">Schedule Online Consultation</a>
+        </div>
+    </div>
+
+    <!-- Footer with Contact Details -->
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p>Contact: <a href="mailto:Medicineshop@gmail.com" class="text-white">Medicineshop@gmail.com</a></p>
+                    <p>Phone: 0798468597, 07880580569</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <p>&copy; 2023 Medicine Online Shop. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Social Media Icons -->
+    <div class="social-icons">
+        <a href="https://www.instagram.com" target="_blank">
+            <img src="Instagram_icon.png" alt="Instagram">
+        </a>
+        <a href="https://twitter.com" target="_blank">
+            <img src="twitter.png" alt="Twitter/X">
+        </a>
+        <a href="https://wa.me/07880857087" target="_blank">
+            <img src="download.jpg" alt="WhatsApp">
+        </a>
+    </div>
+
+</body>
+</html>

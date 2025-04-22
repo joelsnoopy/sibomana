@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Medicine Orders</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+         /* Header styles */
+         .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.7);
+            height: 60px;
+            position: sticky;
+        }
+        
+        .logo {
+            position: sticky;
+            height: 40px;
+            width: auto;
+        }
+        
+        .menu {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .menu ul li {
+            display: inline-block;
+        }
+        
+        .menu ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            padding: 8px 12px;
+            display: block;
+            transition: color 0.3s ease, background 0.3s ease;
+        }
+        
+        .menu ul li a:hover {
+            color: #17a2b8;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Header with Logo and Login/Signup Buttons -->
+     <div class="header">
+         <img src="logo123.jpg" alt="Medicine Shop Logo" class="logo"> 
+         <div class="menu">
+             <ul>
+                 <li><a href="page1.html">Home</a></li>
+                 <li><a href="shop (2).html">Shop</a></li>
+                 <li><a href="do.html">Cart</a></li>
+                 <li><a href="order.html">Orders</a></li>
+                 <li><a href="doctor%20advice.html">Doctor's advices</a></li>
+             </ul>
+         </div>
+     </div>
+     </header>
+    <!-- <header>
+        <div class="header-container">
+            <nav>
+                <a href="#" id="cart-link">Cart (<span id="cart-count">0</span>)</a>
+                <div>
+                    <span>Product 1</span>
+                    <button onclick="updateCart('product1', 1)">+</button>
+                    <button onclick="updateCart('product1', -1)">-</button>
+                    <span id="product1-count">0</span>
+                </div>
+            <script>
+                const cart = {
+                    product1: 0,
+                    product2: 0
+                };
+        
+                function updateCart(product, change) {
+                    const newCount = cart[product] + change;
+                    if (newCount >= 0) {
+                        cart[product] = newCount;
+                        document.getElementById(`${product}-count`).textContent = newCount;
+                        updateCartTotal();
+                    }
+                }
+        
+                function updateCartTotal() {
+                    const total = Object.values(cart).reduce((sum, count) => sum + count, 0);
+                    document.getElementById('cart-count').textContent = total;
+                }
+            </script>
+                <a href="page1.html">Home</a>
+            </nav>
+        </div>
+    </header> -->
+
+    <main>
+        <h2>My Medicine Orders</h2>
+        
+        <div class="order-status-tabs">
+            <button class="status-btn active" data-status="all">All Orders</button>
+            <button class="status-btn" data-status="processing">Processing</button>
+            <button class="status-btn" data-status="shipped">Shipped</button>
+            <button class="status-btn" data-status="delivered">Delivered</button>
+        </div>
+
+        <div id="orders-container">
+            <!-- Orders will be displayed here -->
+            <div class="no-orders">
+                <p>You haven't placed any orders yet.</p>
+                <a href="joeltest.html" class="shop-btn">Browse Medicines</a>
+            </div>
+        </div>
+    </main>
+
+   <!-- Footer with Contact Details -->
+    <!-- Footer with Contact Details -->
+    <div class="footer">
+        <p>Contact: <a href="mailto:Medicineshop@gmail.com" class="text-white">Medicineshop@gmail.com</a></p>
+        <p>Phone: 0798468597, 07880580569</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

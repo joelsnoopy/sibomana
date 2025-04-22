@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicine Online Shop</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background: url('medecine.avif') no-repeat center center fixed; 
+            background-size: cover;
+            color: white;
+            font-family: Arial, sans-serif;
+        } .animated-header {
+            text-align: center;
+            font-size: 32px;
+            font-weight: bold;
+            padding: 10px;
+            animation: colorChange 5s infinite alternate;
+        }
+
+        @keyframes colorChange {
+            0%   { color: red; }
+            25%  { color: blue; }
+            50%  { color: green; }
+            75%  { color: white; }
+            100% { color: purple; }
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px;
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background for readability */
+        }
+        .logo {
+            width: 100px;
+            height: auto;
+        }
+        .footer {
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            position: absolute;
+            bottom: 50px;
+            width: 100%;
+            text-align: left;
+        }
+        .social-icons {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+        }
+        .social-icons img {
+            width: 40px;
+            height: auto;
+            cursor: pointer;
+            text-align: right;
+            
+        }
+        .menu {
+    flex-grow: 1; /* Allows the menu to take up remaining space */
+    display: flex;
+    justify-content: center; /* Centers the menu */
+    align-items: center;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 30px; /* Spacing between menu items */
+}
+
+.menu ul li {
+    display: inline-block;
+}
+
+.menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+    padding: 12px 20px; /* Larger clickable area */
+    display: block;
+    transition: color 0.3s ease, background 0.3s ease;
+}
+
+.menu ul li a:hover {
+    color: #17a2b8;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+#hero {
+    text-align: center;
+    padding: 100px 20px;
+    color: #17a2b8;
+  }
+  #hero p{
+    color: black;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #a2bfda;
+    color: rgb(203, 228, 163);
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+flex-grow: 1;
+  }
+  /* Header styles */
+  .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background: rgba(0, 0, 0, 0.7);
+            height: 60px;
+            position: sticky;
+        }
+        
+        .logo {
+            position: sticky;
+            height: 40px;
+            width: auto;
+        }
+        
+        .menu {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .menu ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            gap: 15px;
+        }
+        
+        .menu ul li {
+            display: inline-block;
+        }
+        
+        .menu ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            padding: 8px 12px;
+            display: block;
+            transition: color 0.3s ease, background 0.3s ease;
+        }
+        
+        .menu ul li a:hover {
+            color: #17a2b8;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 5px;
+        }
+  
+
+    </style>
+</head>
+<body>
+  
+
+    <!-- Header with Logo and Login/Signup Buttons -->
+    <div class="header">
+        <img src="logo123.jpg" alt="Medicine Shop Logo" class="logo"> 
+        <div class="menu">
+            <ul>
+                <li><a href="page1.html">Home</a></li>
+                <li><a href="shop (2).html">Shop</a></li>
+                <li><a href="do.html">Cart</a></li>
+                <li><a href="Order.html">Orders</a></li>
+                <li><a href="doctor%20advice.html">Doctor's advices</a></li>
+                </ul>
+            </div>
+        <div>
+            
+            <a href="signup2.html" class="btn btn-light">Logout</a>
+        </div>
+    </div>
+
+     <!-- Homepage Banner -->
+     <section id="hero">
+        <div class="hero-content">
+          <h2>Welcome to MedCare</h2>
+          <p>Your one-stop shop for medicines and health advice</p>
+          <a href="joeltest.html" class="btn">Shop Now</a>
+        </div>
+      </section>
+    <!-- Social Media Icons at Bottom Center -->
+    <div class="social-icons">
+        <a href="https://www.instagram.com" target="_blank">
+            <img src="Instagram_icon.png" alt="Instagram">
+        </a>
+        <a href="https://twitter.com" target="_blank">
+            <img src="twitter.png" alt="Twitter/X">
+        </a>
+        <a href="https://wa.me/07880857087" target="_blank">
+            <img src="download.jpg" alt="WhatsApp">
+        </a>
+    </div>
+
+    <!-- Footer with Contact Details -->
+    <div class="footer">
+        <p>Contact: <a href="mailto:Medicineshop@gmail.com" class="text-white">Medicineshop@gmail.com</a></p>
+        <p>Phone: 0798468597, 07880580569</p>
+    </div>
+
+</body>
+</html>
